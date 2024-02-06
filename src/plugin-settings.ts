@@ -74,6 +74,8 @@ export interface WordpressPluginSettings {
    * Whether media links should be replaced after uploading to WordPress.
    */
   replaceMediaLinks: boolean;
+
+  formatAsBlocks: boolean;
 }
 
 export const DEFAULT_SETTINGS: WordpressPluginSettings = {
@@ -88,6 +90,7 @@ export const DEFAULT_SETTINGS: WordpressPluginSettings = {
   commentConvertMode: CommentConvertMode.Ignore,
   enableHtml: false,
   replaceMediaLinks: true,
+  formatAsBlocks: false,
 }
 
 export async function upgradeSettings(
@@ -109,6 +112,7 @@ export async function upgradeSettings(
         showWordPressEditConfirm: existingSettings.showWordPressEditConfirm,
         mathJaxOutputType: existingSettings.mathJaxOutputType,
         commentConvertMode: existingSettings.commentConvertMode,
+        formatAsBlocks: existingSettings.formatAsBlocks,
       });
       if (existingSettings.endpoint) {
         const endpoint = existingSettings.endpoint;

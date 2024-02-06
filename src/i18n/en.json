@@ -127,5 +127,7 @@
   "profilesChooserModal_pickOne": "Click to pick one profile to publish.",
   "profiles_default": "Default Profile",
   "profileNotMatch_useOld": "Use \"<%= profileName %>\" in the note",
-  "profileNotMatch_useNew": "Create a new post using \"<%= profileName %>\""
+  "profileNotMatch_useNew": "Create a new post using \"<%= profileName %>\"",
+  "settings_formatAsBlocks": "Format as Blocks",
+  "settings_formatAsBlocksDesc": "Convert post to blocks for WordPress Gutenberg editor"
 }

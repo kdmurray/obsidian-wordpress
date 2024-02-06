@@ -91,6 +91,25 @@ export class WordpressSettingTab extends PluginSettingTab {
           });
       });
 
+      new Setting(containerEl)
+      .setName(t('settings_formatAsBlocks'))
+      .setDesc(t('settings_formatAsBlocksDesc'))
+      .addToggle((toggle) =>
+        toggle
+          .setValue(this.plugin.settings.formatAsBlocks)
+          .onChange(async (value) => {
+            this.plugin.settings.formatAsBlocks = value;
+            if (!value) {
+              this.plugin.settings.profiles.forEach((profile: WpProfile) => {
+                if (!profile.lastSelectedCategories || profile.lastSelectedCategories.length === 0) {
+                  profile.lastSelectedCategories = [ 1 ];
+                }
+              });
+            }
+            await this.plugin.saveSettings();
+          }),
+      );
+
     new Setting(containerEl)
       .setName(t('settings_defaultPostComment'))
       .setDesc(t('settings_defaultPostCommentDesc'))
